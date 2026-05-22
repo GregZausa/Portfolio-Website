@@ -62,7 +62,6 @@ const ContactSection = () => {
     <section id="contacts" className="bg-gray-50 dark:bg-gray-950/50 py-24 px-6">
       <div className="max-w-5xl mx-auto">
 
-        {/* Heading */}
         <div className="mb-14">
           <p className="text-xs font-semibold tracking-widest uppercase text-violet-500 dark:text-violet-400 mb-3">Contact</p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">
@@ -72,14 +71,12 @@ const ContactSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
 
-          {/* Left — intro + links */}
           <div className="lg:col-span-2">
             <p className="text-[15px] text-gray-500 dark:text-gray-400 leading-relaxed mb-8">
               I'm currently open to full-time roles, freelance projects, and interesting collaborations. 
               Whether you have a project in mind or just want to say hi — I'd love to hear from you.
             </p>
 
-            {/* Contact links */}
             <div className="flex flex-col gap-3 mb-8">
               {contactLinks.map(({ icon, label, value, sub, href, color }) => (
                 <a
@@ -101,14 +98,12 @@ const ContactSection = () => {
               ))}
             </div>
 
-            {/* Location */}
             <div className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-600">
               <MapPin size={13} />
               San Jose del Monte, Bulacan, Philippines
             </div>
           </div>
 
-          {/* Right — form */}
           <div className="lg:col-span-3 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-7">
             {submitted ? (
               <div className="flex flex-col items-center justify-center py-16 text-center">
@@ -204,7 +199,6 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* Bottom strip */}
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-400 dark:text-gray-600">
             Prefer something casual?

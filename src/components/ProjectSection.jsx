@@ -1,67 +1,95 @@
-import React, { useState } from 'react';
-import { ExternalLink, Github, ArrowUpRight, Lock } from 'lucide-react';
-import dashboardProj from '../res/gemi-dashboard.png';
+import React, { useState } from "react";
+import { ExternalLink, Github, ArrowUpRight, Lock } from "lucide-react";
+import dashboardProj from "../res/gemi-dashboard.png";
+import costiqProj from "../res/costiq-image.png";
+import studToolProj from "../res/student-tool-app.jpg";
 
 const projects = [
   {
     id: 1,
-    title: 'GEMI Energy Analytics Dashboard',
+    title: "GEMI Energy Analytics Dashboard",
     description:
-      'Advanced energy monitoring and analytics platform featuring real-time data visualization, trend analysis, and multi-site comparison for renewable energy systems.',
+      "Advanced energy monitoring and analytics platform featuring real-time data visualization, trend analysis, and multi-site comparison for renewable energy systems.",
     image: dashboardProj,
-    tags: ['Streamlit', 'Python', 'Data Viz', 'Energy'],
-    liveDemo: 'https://gemidashboards.streamlit.app/',
-    github: null,
-    status: 'live',
+    tags: ["Streamlit", "Python", "Data Viz", "Energy"],
+    liveDemo: "https://gemidashboards.streamlit.app/",
+    github: "https://github.com/GregZausa/Dashboard",
+    status: "live",
     features: [
-      'Real-time energy monitoring',
-      'Interactive trend analysis',
-      'Multi-site comparison',
-      'Availability factor tracking',
+      "kWh/kWp monitoring",
+      "Interactive trend analysis",
+      "Multi-site comparison",
+      "Availability factor tracking",
     ],
-    tagColor: 'bg-cyan-50 dark:bg-cyan-950/40 text-cyan-700 dark:text-cyan-300 border-cyan-200 dark:border-cyan-800/40',
+    tagColor:
+      "bg-cyan-50 dark:bg-cyan-950/40 text-cyan-700 dark:text-cyan-300 border-cyan-200 dark:border-cyan-800/40",
   },
   {
     id: 2,
-    title: 'Accounting Software (Capstone)',
+    title: "CostIQ",
     description:
-      'Comprehensive accounting system built as a capstone project — general ledger, financial statements, payroll module, and role-based access control.',
-    image: null,
-    tags: ['PHP', 'MySQL', 'Bootstrap', 'OOP'],
-    liveDemo: null,
-    github: null,
-    status: 'private',
+      "A full-stack expense and cost intelligence application built with the PERN stack (PostgreSQL, Express, React, Node.js). CostIQ helps users analyze pricing data, generate reports, and gain AI-powered insights through interactive charts and dashboards.",
+    image: costiqProj,
+    tags: ["React", "Node.js", "PostgreSQL", "Express"],
+    liveDemo: `https://usecostiq.vercel.app`,
+    github: "https://github.com/GregZausa/CostIQ",
+    status: "live",
     features: [
-      'General ledger & chart of accounts',
-      'Financial statements generation',
-      'Payroll processing module',
-      'Role-based access control',
+      "Accurate product pricing",
+      "Generate reports",
+      "AI Insights",
+      "Graphs and Charts",
     ],
-    tagColor: 'bg-violet-50 dark:bg-violet-950/40 text-violet-700 dark:text-violet-300 border-violet-200 dark:border-violet-800/40',
+    tagColor:
+      "bg-gray-50 dark:bg-gray-800/40 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700",
   },
   {
     id: 3,
-    title: 'PERN Stack Project',
+    title: "Student Tool Application",
     description:
-      'Currently in development — a full-stack application built with PostgreSQL, Express, React, and Node.js. Details coming soon.',
-    image: null,
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Express'],
-    liveDemo: null,
-    github: null,
-    status: 'wip',
-    features: [],
-    tagColor: 'bg-gray-50 dark:bg-gray-800/40 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700',
+      "All-in-one student productivity application that helps users manage academics and daily tasks — featuring a GPA calculator, Pomodoro timer, quiz generator, notes and materials organizer, todo list, and deadline tracking system.",
+    image: studToolProj,
+    tags: ["React", "Supabase", "API"],
+    liveDemo: `https://usestudiq.vercel.app/`,
+    github: `https://github.com/GregZausa/student-tool-app`,
+    status: "live",
+    features: [
+      "GPA Calculator",
+      "Pomodoro Timer",
+      "Quiz Generator",
+      "Notes",
+      "Materials",
+    ],
+    tagColor:
+      "bg-violet-50 dark:bg-violet-950/40 text-violet-700 dark:text-violet-300 border-violet-200 dark:border-violet-800/40",
   },
 ];
 
 const statusBadge = {
-  live: { label: 'Live', className: 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/40', dot: 'bg-emerald-500' },
-  private: { label: 'Private', className: 'bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-500 border-gray-200 dark:border-gray-700', dot: 'bg-gray-400' },
-  wip: { label: 'In progress', className: 'bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 border-amber-200 dark:border-amber-800/40', dot: 'bg-amber-500' },
+  live: {
+    label: "Live",
+    className:
+      "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/40",
+    dot: "bg-emerald-500",
+  },
+  private: {
+    label: "Private",
+    className:
+      "bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-500 border-gray-200 dark:border-gray-700",
+    dot: "bg-gray-400",
+  },
+  wip: {
+    label: "In progress",
+    className:
+      "bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 border-amber-200 dark:border-amber-800/40",
+    dot: "bg-amber-500",
+  },
 };
 
 const PlaceholderImage = ({ title, wip }) => (
-  <div className={`w-full h-full flex flex-col items-center justify-center gap-3 ${wip ? 'bg-gray-50 dark:bg-gray-900' : 'bg-gray-100 dark:bg-gray-800/60'}`}>
+  <div
+    className={`w-full h-full flex flex-col items-center justify-center gap-3 ${wip ? "bg-gray-50 dark:bg-gray-900" : "bg-gray-100 dark:bg-gray-800/60"}`}
+  >
     <div className="w-12 h-12 rounded-2xl border-2 border-dashed border-gray-200 dark:border-gray-700 flex items-center justify-center">
       {wip ? (
         <span className="text-lg">🚧</span>
@@ -69,7 +97,9 @@ const PlaceholderImage = ({ title, wip }) => (
         <Lock size={18} className="text-gray-300 dark:text-gray-600" />
       )}
     </div>
-    <p className="text-xs text-gray-400 dark:text-gray-600 font-medium">{wip ? 'Coming soon' : 'Private project'}</p>
+    <p className="text-xs text-gray-400 dark:text-gray-600 font-medium">
+      {wip ? "Coming soon" : "Private project"}
+    </p>
   </div>
 );
 
@@ -79,11 +109,10 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div
-      className="group bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-lg hover:shadow-gray-100/50 dark:hover:shadow-gray-950/50 transition-all duration-300 hover:-translate-y-1"
+      className="group bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden h-full flex flex-col hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-lg hover:shadow-gray-100/50 dark:hover:shadow-gray-950/50 transition-all duration-300 hover:-translate-y-1"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Image area */}
       <div className="relative aspect-video overflow-hidden bg-gray-50 dark:bg-gray-800">
         {project.image ? (
           <>
@@ -94,11 +123,18 @@ const ProjectCard = ({ project }) => {
             />
             {/* Feature overlay on hover */}
             {project.features.length > 0 && (
-              <div className={`absolute inset-0 bg-gray-900/85 backdrop-blur-sm flex flex-col justify-end p-5 transition-opacity duration-300 ${hovered ? 'opacity-100' : 'opacity-0'}`}>
-                <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Key features</p>
+              <div
+                className={`absolute inset-0 bg-gray-900/85 backdrop-blur-sm flex flex-col justify-end p-5 transition-opacity duration-300 ${hovered ? "opacity-100" : "opacity-0"}`}
+              >
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">
+                  Key features
+                </p>
                 <ul className="space-y-1.5">
                   {project.features.map((f, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-white">
+                    <li
+                      key={i}
+                      className="flex items-center gap-2 text-sm text-white"
+                    >
                       <span className="w-1 h-1 rounded-full bg-violet-400 flex-shrink-0" />
                       {f}
                     </li>
@@ -108,20 +144,26 @@ const ProjectCard = ({ project }) => {
             )}
           </>
         ) : (
-          <PlaceholderImage title={project.title} wip={project.status === 'wip'} />
+          <PlaceholderImage
+            title={project.title}
+            wip={project.status === "wip"}
+          />
         )}
       </div>
 
-      {/* Content */}
-      <div className="p-6">
-        {/* Status + tags row */}
+      <div className="p-6 flex flex-col flex-1">
         <div className="flex items-center gap-2 flex-wrap mb-4">
-          <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border ${badge.className}`}>
+          <span
+            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border ${badge.className}`}
+          >
             <span className={`w-1.5 h-1.5 rounded-full ${badge.dot}`} />
             {badge.label}
           </span>
-          {project.tags.map(tag => (
-            <span key={tag} className={`px-2.5 py-1 rounded-full text-xs font-medium border ${project.tagColor}`}>
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className={`px-2.5 py-1 rounded-full text-xs font-medium border ${project.tagColor}`}
+            >
               {tag}
             </span>
           ))}
@@ -134,8 +176,7 @@ const ProjectCard = ({ project }) => {
           {project.description}
         </p>
 
-        {/* Actions */}
-        <div className="flex gap-2">
+        <div className=" mt-auto flex gap-2">
           {project.liveDemo && (
             <a
               href={project.liveDemo}
@@ -158,7 +199,9 @@ const ProjectCard = ({ project }) => {
           )}
           {!project.liveDemo && !project.github && (
             <div className="flex-1 flex items-center justify-center px-4 py-2.5 bg-gray-50 dark:bg-gray-800/60 rounded-xl text-sm text-gray-400 dark:text-gray-500 border border-gray-100 dark:border-gray-700">
-              {project.status === 'wip' ? '⏳ In development' : '🔒 Private repository'}
+              {project.status === "wip"
+                ? "⏳ In development"
+                : "🔒 Private repository"}
             </div>
           )}
         </div>
@@ -170,9 +213,10 @@ const ProjectCard = ({ project }) => {
 const ProjectSection = () => (
   <section id="projects" className="bg-white dark:bg-gray-950 py-24 px-6">
     <div className="max-w-5xl mx-auto">
-
       <div className="mb-14">
-        <p className="text-xs font-semibold tracking-widest uppercase text-violet-500 dark:text-violet-400 mb-3">Work</p>
+        <p className="text-xs font-semibold tracking-widest uppercase text-violet-500 dark:text-violet-400 mb-3">
+          Work
+        </p>
         <div className="flex items-end justify-between gap-4 flex-wrap">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">
             Projects I've shipped
@@ -189,16 +233,19 @@ const ProjectSection = () => (
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-        {projects.map(project => (
+        {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
 
       {/* Bottom CTA */}
       <div className="mt-16 rounded-2xl border border-dashed border-gray-200 dark:border-gray-800 p-10 text-center">
-        <p className="text-sm text-gray-400 dark:text-gray-500 mb-2">More projects in progress</p>
+        <p className="text-sm text-gray-400 dark:text-gray-500 mb-2">
+          More projects in progress
+        </p>
         <p className="text-gray-600 dark:text-gray-400 text-[15px] mb-6">
-          Currently building with the PERN stack — follow along on GitHub to see what's coming next.
+          Currently building with the PERN stack — follow along on GitHub to see
+          what's coming next.
         </p>
         <a
           href="https://github.com/GregZausa"
