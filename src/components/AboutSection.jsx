@@ -24,73 +24,78 @@ const tools = [
 ];
 
 const stack = [
-  { name: 'React', type: 'Frontend', color: 'bg-cyan-50 dark:bg-cyan-950/40 border-cyan-200 dark:border-cyan-800/40 text-cyan-700 dark:text-cyan-300' },
-  { name: 'Node.js', type: 'Backend', color: 'bg-green-50 dark:bg-green-950/40 border-green-200 dark:border-green-800/40 text-green-700 dark:text-green-300' },
-  { name: 'PostgreSQL', type: 'Database', color: 'bg-blue-50 dark:bg-blue-950/40 border-blue-200 dark:border-blue-800/40 text-blue-700 dark:text-blue-300' },
-  { name: 'Python', type: 'Data / Scripts', color: 'bg-yellow-50 dark:bg-yellow-950/40 border-yellow-200 dark:border-yellow-800/40 text-yellow-700 dark:text-yellow-300' },
-  { name: 'Express', type: 'API layer', color: 'bg-gray-50 dark:bg-gray-800/40 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300' },
-  { name: 'Streamlit', type: 'Dashboards', color: 'bg-red-50 dark:bg-red-950/40 border-red-200 dark:border-red-800/40 text-red-700 dark:text-red-300' },
+  { name: 'React', type: 'Frontend' },
+  { name: 'Node.js', type: 'Backend' },
+  { name: 'PostgreSQL', type: 'Database' },
+  { name: 'Python', type: 'Data / Scripts' },
+  { name: 'Express', type: 'API layer' },
+  { name: 'Streamlit', type: 'Dashboards' },
 ];
 
 const now = [
-  { icon: <Zap size={14} />, text: 'Mastering PERN & MERN stack', color: 'text-violet-500' },
-  { icon: <Target size={14} />, text: 'Sharpening DSA & OOP fundamentals', color: 'text-cyan-500' },
-  { icon: <GraduationCap size={14} />, text: 'Open to full-time & freelance roles', color: 'text-emerald-500' },
+  { icon: <Zap size={14} />, text: 'Mastering PERN & MERN stack' },
+  { icon: <Target size={14} />, text: 'Sharpening DSA & OOP fundamentals' },
+  { icon: <GraduationCap size={14} />, text: 'Open to full-time & freelance roles' },
 ];
 
+const Panel = ({ label, className = '', children }) => (
+  <div className={`bg-white dark:bg-[#121820] rounded-xl border border-[#E4E0D8] dark:border-white/10 p-7 ${className}`}>
+    <p className="text-[10.5px] font-['JetBrains_Mono'] tracking-widest uppercase text-[#5B6572] dark:text-[#7C8A98] mb-5">{label}</p>
+    {children}
+  </div>
+);
+
 const AboutSection = () => (
-  <section id="about" className="bg-gray-50 dark:bg-gray-950/50 py-24 px-6">
+  <section id="about" className="bg-[#F1EEE7] dark:bg-[#0E141B] py-24 px-6 font-['Inter']">
     <div className="max-w-5xl mx-auto">
 
-      {/* Heading */}
       <div className="mb-14">
-        <p className="text-xs font-semibold tracking-widest uppercase text-violet-500 dark:text-violet-400 mb-3">About</p>
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">
-          The person behind the code
+        <p className="text-[11px] font-['JetBrains_Mono'] tracking-widest uppercase text-[#C97A22] dark:text-[#E3A23C] mb-3">Exhibit A — The Facts</p>
+        <h2 className="font-['Sora'] text-4xl md:text-5xl font-bold text-[#14181C] dark:text-[#E8EDF2] tracking-tight">
+          Quick facts, before the story
         </h2>
       </div>
 
-      {/* Bento grid */}
       <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
 
-        {/* Story — spans 4 cols */}
-        <div className="md:col-span-4 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-7">
-          <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 dark:text-gray-600 mb-5">Story</p>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4 text-[15px]">
-            My journey started with curiosity — <em className="text-gray-900 dark:text-white not-italic font-medium">how do websites actually work?</em> That question sent me down a rabbit hole of HTML, CSS, JavaScript, and I never quite found the exit.
+        {/* Story */}
+        <Panel label="Origin" className="md:col-span-4">
+          <p className="text-[#5B6572] dark:text-[#8A97A3] leading-relaxed mb-4 text-[15px]">
+            It started with one question: <em className="text-[#14181C] dark:text-[#E8EDF2] not-italic font-semibold">how do websites actually work?</em>{' '}
+            That sent me down a rabbit hole of HTML, CSS, and JavaScript, and I never quite found the exit.
           </p>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4 text-[15px]">
-            Today that curiosity drives me to build meaningful tools — from energy analytics dashboards to full accounting systems for my BulSU capstone. Real software, shipped and used.
+          <p className="text-[#5B6572] dark:text-[#8A97A3] leading-relaxed mb-4 text-[15px]">
+            That curiosity is now the reason I build tools that do real work — an energy analytics dashboard
+            people actually check, and a full accounting system I shipped as my BulSU capstone.
           </p>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-[15px]">
-            I'm currently leveling up in PERN and MERN stack while sharpening my DSA fundamentals, and genuinely excited to bring fresh perspective and clean code to a great team.
+          <p className="text-[#5B6572] dark:text-[#8A97A3] leading-relaxed text-[15px]">
+            Right now I'm deep in the PERN and MERN stack, sharpening my DSA fundamentals, and looking for
+            a team that wants someone who ships rather than just talks about shipping.
           </p>
-        </div>
+        </Panel>
 
-        {/* Location — spans 2 cols */}
-        <div className="md:col-span-2 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-7 flex flex-col justify-between">
+        {/* Location */}
+        <Panel label="Base of operations" className="md:col-span-2 flex flex-col justify-between">
           <div>
-            <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 dark:text-gray-600 mb-5">Location</p>
-            <div className="text-5xl mb-4">🇵🇭</div>
-            <p className="font-semibold text-gray-900 dark:text-white text-[15px]">San Jose del Monte</p>
-            <p className="text-sm text-gray-400 dark:text-gray-600 mt-1 flex items-center gap-1.5">
+            <div className="text-4xl mb-4">🇵🇭</div>
+            <p className="font-semibold text-[#14181C] dark:text-[#E8EDF2] text-[15px]">San Jose del Monte</p>
+            <p className="text-sm text-[#8A8478] dark:text-[#5B6572] mt-1 flex items-center gap-1.5">
               <MapPin size={12} /> Bulacan, Philippines · UTC+8
             </p>
           </div>
-          <div className="mt-6 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/40 text-emerald-600 dark:text-emerald-400 text-xs font-medium w-fit">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="mt-6 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#4FB6A8]/10 border border-[#4FB6A8]/30 text-[#1E8F80] dark:text-[#4FB6A8] text-xs font-medium w-fit font-['JetBrains_Mono']">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#4FB6A8] animate-pulse" />
             Remote-friendly
           </div>
-        </div>
+        </Panel>
 
-        {/* Currently — spans 2 cols */}
-        <div className="md:col-span-2 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-7">
-          <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 dark:text-gray-600 mb-5">Currently</p>
+        {/* Currently */}
+        <Panel label="Currently" className="md:col-span-2">
           <div className="flex flex-col gap-4">
-            {now.map(({ icon, text, color }, i) => (
+            {now.map(({ icon, text }, i) => (
               <div key={i} className="flex items-start gap-3">
-                <span className={`mt-0.5 flex-shrink-0 ${color}`}>{icon}</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{text}</span>
+                <span className="mt-0.5 flex-shrink-0 text-[#C97A22] dark:text-[#E3A23C]">{icon}</span>
+                <span className="text-sm text-[#5B6572] dark:text-[#8A97A3] leading-relaxed">{text}</span>
               </div>
             ))}
           </div>
@@ -98,40 +103,38 @@ const AboutSection = () => (
             href={resumePDf}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-semibold hover:bg-gray-700 dark:hover:bg-gray-100 transition-all duration-200"
+            className="mt-8 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#14181C] dark:bg-[#E8EDF2] text-white dark:text-[#0B0F14] text-sm font-semibold hover:bg-[#C97A22] dark:hover:bg-[#E3A23C] transition-all duration-200"
           >
-            <Download size={14} /> Download Resume
+            <Download size={14} /> Download resume
           </a>
-        </div>
+        </Panel>
 
-        {/* Stack — spans 4 cols */}
-        <div className="md:col-span-4 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-7">
-          <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 dark:text-gray-600 mb-5">Primary stack</p>
+        {/* Stack */}
+        <Panel label="Primary stack" className="md:col-span-4">
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {stack.map(({ name, type, color }) => (
-              <div key={name} className={`rounded-xl border px-4 py-3 ${color} transition-all duration-200 hover:-translate-y-0.5`}>
-                <div className="font-semibold text-sm">{name}</div>
-                <div className="text-xs opacity-60 mt-0.5">{type}</div>
+            {stack.map(({ name, type }) => (
+              <div key={name} className="rounded-lg border border-[#E4E0D8] dark:border-white/10 bg-[#F7F5F0] dark:bg-white/[0.02] px-4 py-3 transition-all duration-200 hover:border-[#E3A23C]/50 hover:-translate-y-0.5">
+                <div className="font-semibold text-sm text-[#14181C] dark:text-[#E8EDF2]">{name}</div>
+                <div className="text-xs text-[#8A8478] dark:text-[#5B6572] mt-0.5">{type}</div>
               </div>
             ))}
           </div>
-        </div>
+        </Panel>
 
-        {/* All tools — spans 6 cols */}
-        <div className="md:col-span-6 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-7">
-          <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 dark:text-gray-600 mb-5">All tools & technologies</p>
+        {/* All tools */}
+        <Panel label="All tools & technologies" className="md:col-span-6">
           <div className="flex flex-wrap gap-2">
             {tools.map(({ name, type }) => (
               <span
                 key={name}
-                className="group px-3 py-1.5 rounded-lg bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700/60 text-gray-600 dark:text-gray-400 text-xs font-medium hover:border-violet-300 dark:hover:border-violet-700 hover:text-violet-600 dark:hover:text-violet-300 hover:bg-violet-50 dark:hover:bg-violet-950/30 transition-all duration-200 cursor-default"
+                className="px-3 py-1.5 rounded-md bg-[#F7F5F0] dark:bg-white/[0.03] border border-[#E4E0D8] dark:border-white/10 text-[#5B6572] dark:text-[#8A97A3] text-xs font-medium hover:border-[#E3A23C]/50 hover:text-[#C97A22] dark:hover:text-[#E3A23C] transition-all duration-200 cursor-default"
                 title={type}
               >
                 {name}
               </span>
             ))}
           </div>
-        </div>
+        </Panel>
 
       </div>
     </div>
