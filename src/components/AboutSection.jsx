@@ -1,6 +1,6 @@
 import React from 'react';
 import { Download, MapPin, GraduationCap, Zap, Target } from 'lucide-react';
-import resumePDf from '../res/G.C.Zausa-Resume.pdf';
+import resumePDf from '../res/G.C.Zausa-Resume-Developer.pdf';
 
 const tools = [
   { name: 'JavaScript', type: 'Language' },

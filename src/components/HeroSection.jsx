@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, Download, ArrowRight, Sparkles } from 'lucide-react';
 import NavBar from './NavBar';
-import resumePDf from '../res/G.C.Zausa-Resume.pdf';
+import resumePDf from '../res/G.C.Zausa-Resume-Developer.pdf';
 
 const roles = ['Full-Stack Developer', 'UI/UX Enthusiast', 'Problem Solver', 'Creative Builder'];
 

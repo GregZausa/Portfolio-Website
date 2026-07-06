@@ -45,7 +45,7 @@ const projects = [
   },
   {
     id: 3,
-    title: "Student Tool Application",
+    title: "StudIQ",
     description:
       "All-in-one student productivity application that helps users manage academics and daily tasks — featuring a GPA calculator, Pomodoro timer, quiz generator, notes and materials organizer, todo list, and deadline tracking system.",
     image: studToolProj,
