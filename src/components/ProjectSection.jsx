@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { ExternalLink, Github, ArrowUpRight, Lock } from "lucide-react";
 import dashboardProj from "../res/gemi-dashboard.png";
-import costiqProj from "../res/costiq-image.png";
-import studToolProj from "../res/student-tool-app.jpg";
+import costiqProj from "../res/costiq-homepage.png";
+import studToolProj from "../res/studiq-homepage.png";
 
 const projects = [
   {
